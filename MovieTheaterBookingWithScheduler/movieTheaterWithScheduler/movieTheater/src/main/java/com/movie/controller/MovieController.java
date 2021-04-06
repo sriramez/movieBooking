@@ -33,14 +33,14 @@ public class MovieController {
 	@Autowired
 	MongoTemplate mongo;
 	
-	@GetMapping("movie")
+	@GetMapping("/movie")
 	public String getMovieDetails(@RequestParam String movieName,@RequestParam int timings)
 	{
 		return movieService.getMovieSeats(movieName, timings);
 	}
 	
 	
-	@PostMapping("blocktickets")
+	@PostMapping("/ticket")
 	public String blockTickets(@RequestParam String movie,@RequestParam int timings,@RequestParam int userid,@RequestBody ArrayList<String> ticketIds,@RequestParam String username)
 	{
 		if(!userCache.containsKey(username))
