@@ -40,20 +40,20 @@ public class UserController {
 	@Qualifier("userAuth")
 	Cache<String,Integer> userCache;
 	
-	@PostMapping
+	@PostMapping("user")
 	public String createUser(@RequestBody User user)
 	{
 		return this.user.createUser(user);
 	}
 	
-	@PostMapping("login")
+	@PostMapping("/user/login")
 	public String login(@RequestBody User user)
 	{
 		return this.user.login(user);
 	}
 	
 	
-	@PostMapping("payment")
+	@PostMapping("/user/payment")
 	public String payment(@RequestParam int userid,@RequestParam String uuid,@RequestParam String card,@RequestParam String ccv,@RequestParam String username)
 	{
 		if(!userCache.containsKey(username))
